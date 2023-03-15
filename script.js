@@ -1,4 +1,5 @@
-const btn = document.querySelector("[data-form-btn]")
+( () => 
+    {const btn = document.querySelector("[data-form-btn]")
 
 const createTask = (evento) => {
     evento.preventDefault()
@@ -7,7 +8,6 @@ const createTask = (evento) => {
     const list = document.querySelector("[data-list]");
     const task = document.createElement("li");
     task.classList.add('card')
-    console.log(checkComplete());
     input.value = "";
     const taskContent = document.createElement("div")
     taskContent.appendChild(checkComplete())
@@ -22,10 +22,7 @@ const createTask = (evento) => {
     task.appendChild(taskContent);
 
     list.appendChild(task)
-    console.log(content);
 }
-
-console.log(btn);
 
 btn.addEventListener("click", createTask)
 
@@ -42,3 +39,4 @@ const completeTask = (event) => {
     element.classList.toggle("completeIcon");
     element.classList.toggle("far")
 }
+})();
