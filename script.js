@@ -14,13 +14,11 @@ const createTask = (evento) => {
     const titleTask = document.createElement("span")
     titleTask.classList.add("task")
     titleTask.innerText = value
-    taskContent.appendChild(titleTask)
-    const content = `
-    <i class="fas fa-trash-alt trashIcon icon"></i>
-    `;
+    taskContent.appendChild(titleTask);
+    
     // task.innerHTML = content;
     task.appendChild(taskContent);
-
+    task.appendChild(deleteIcon())
     list.appendChild(task)
 }
 
@@ -38,5 +36,18 @@ const completeTask = (event) => {
     element.classList.toggle("fas");
     element.classList.toggle("completeIcon");
     element.classList.toggle("far")
+}
+
+const deleteIcon = () => {
+    const i = document.createElement("i")
+    i.classList.add("fas", "fa-trash-alt", "trashIcon", "icon")
+    i.addEventListener("click", deleteTask);
+    return i
+}
+
+const deleteTask = (evento) => {
+    const parent = evento.target.parentElement;
+    console.log(parent);
+    parent.remove();
 }
 })();
